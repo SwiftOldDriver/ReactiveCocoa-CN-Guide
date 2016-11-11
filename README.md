@@ -10,29 +10,26 @@
 ## ReactiveSwift 是什么
 __ReactiveSwift__ 为处理___随着时间传递的数据流___ 提供了可组合、声明式和灵活的基本元素（primitives）。这些基本元素用于统一表示基于观察的常见 Cocoa 和通用编程模式。
 
-更多关于核心元素的信息，查看 [ReactiveSwift ][]。
+更多关于核心基本元素的信息，查看 [ReactiveSwift][] 。
 
-## What is ReactiveCocoa?
+## ReactiveCocoa 是什么
 
-__ReactiveCocoa__ wraps various aspects of Cocoa frameworks with the declarative [ReactiveSwift][] primitives.
+__ReactiveCocoa__ 通过使用声明式的 [ReactiveSwift][] 基本元素包含了 Cocoa 框架的多个方面的编程模式。 
 
-1. **UI Bindings**
+1. **UI 绑定**
 
-   UI components exposes [`BindingTarget`][]s, which accept bindings from any
-   kind of streams of values via the `<~` operator.
+   UI 组件公开 [`BindingTarget`][] ，通过 `<~` 操作符绑定任意类型数据流的值。
 
    ```swift
-   // Bind the `name` property of `person` to the text value of an `UILabel`.
+   // 把 `person` 的 `name` 属性绑定到 `UILabel` 的文字上
    nameLabel.text <~ person.name
    ```
 
-2. **Controls and User Interactions**
+2. **控件和用户的交互**
 
-   Interactive UI components expose [`Signal`][]s for control events
-   and updates in the control value upon user interactions.
+   可交互的 UI 组件通过公开 [`Signal`][] 用于事件响应和通过用户的交互更新控件的值。
 
-   A selected set of controls provide a convenience, expressive binding
-   API for [`Action`][]s.
+   特别为一些控件绑定 [`Action`][] 提供了方便快捷的 API 。
 
 
 ```swift
