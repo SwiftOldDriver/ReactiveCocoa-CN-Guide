@@ -16,7 +16,7 @@ __ReactiveSwift__ 为处理___随着时间传递的数据流___ 提供了可组�
 
 __ReactiveCocoa__ 通过使用声明式的 [ReactiveSwift][] 基本元素包含了 Cocoa 框架的多个方面的编程模式。 
 
-1. **UI 绑定**
+1. **绑定 UI **
 
    UI 组件公开 [`BindingTarget`][] ，通过 `<~` 操作符绑定任意类型数据流的值。
 
@@ -29,55 +29,50 @@ __ReactiveCocoa__ 通过使用声明式的 [ReactiveSwift][] 基本元素包含�
 
    可交互的 UI 组件通过公开 [`Signal`][] 用于事件响应和通过用户的交互更新控件的值。
 
-   特别为一些控件绑定 [`Action`][] 提供了方便快捷的 API 。
+   为一些控件绑定 [`Action`][] 提供了方便快捷的 API 。
 
 
 ```swift
-   // Update `allowsCookies` whenever the toggle is flipped.
+   // 当 toggle 的被点击时 `allowsCookies` 的值就会更新
    preferences.allowsCookies <~ toggle.reactive.isOnValues 
 
-   // Compute live character counts from the continuous stream of user initiated
-   // changes in the text.
+   // 根据 textField 中用户的输入实时输出当前文本的字符长度
    textField.reactive.continuousTextValues.map { $0.characters.count }
 
-   // Trigger `commit` whenever the button is pressed.
+   // 当按钮被点击时触发 `commit` 
    button.reactive.pressed = CocoaAction(viewModel.commit)
 ```
 
-3. **Declarative Objective-C Dynamism**
+3. **声明式的 Objective-C 动态机制**
 
-   Create signals that are sourced by intercepting Objective-C objects,
-   e.g. method call interception and object deinitialization.
+   通过拦截 Objective-C 对象生成信号，
+   比如下面例子中的方法调用的拦截和对象释放。
 
    ```swift
-   // Notify after every time `viewWillAppear(_:)` is called.
+   // 每次在 `viewWillAppear(_:)` 调用后都会被通知
    let appearing = view.reactive.trigger(for: #selector(viewWillAppear(_:)))
 
-   // Observe the lifetime of `object`.
+   // 观察 `object` 的生命周期
    object.reactive.lifetime.ended.observeCompleted(doCleanup)
    ```
 
-4. **Expressive, Safe Key Path Observation**
+4. **易读、 安全的 Key Path 观察**
 
-   Establish key-value observations in the form of [`SignalProducer`][]s and
-   `DynamicProperty`s, and enjoy the inherited composability.
+   把 KVO 机制用 [`SignalProducer`][]  和 `DynamicProperty` 的形式表示，可以方便的继承合成。
 
    ```swift
-   // A producer that sends the current value of `keyPath`, followed by
-   // subsequent changes.
+   // 当对象 `keyPath` 的值变化时发送这个值的 producer
    //
-   // Terminate the KVO observation if the lifetime of `self` ends.
+   // 当 `self` 的生命周期结束时停止 KVO
    let producer = object.reactive.values(forKeyPath: #keyPath(key))
    	.take(during: self.reactive.lifetime)
 
-   // A parameterized property that represents the supplied key path of the
-   // wrapped object. It holds a weak reference to the wrapped object.
+   // property 是 person 对应的 keyPath 的值。对这个对象是弱引用(weak reference)。 
    let property = DynamicProperty<String>(object: person,
                                           keyPath: #keyPath(person.name))
    ```
 
-But there are still more to be discovered and introduced. Read our in-code documentations and release notes to
-find out more.
+But there are still more to be discovered and introduced. Read our in-code documentations and release notes to find out more.
 
 ## Getting started
 
