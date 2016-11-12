@@ -56,7 +56,7 @@ __ReactiveCocoa__ 通过使用声明式的 [ReactiveSwift][] 基本元素包含�
    object.reactive.lifetime.ended.observeCompleted(doCleanup)
    ```
 
-4. **易读、 安全的 Key Path 观察**
+4. **易读、 安全的 KVO**
 
    把 KVO 机制用 [`SignalProducer`][]  和 `DynamicProperty` 的形式表示，可以方便的继承合成。
 
