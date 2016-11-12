@@ -31,7 +31,7 @@ __ReactiveCocoa__ 通过使用声明式的 [ReactiveSwift][] 基本元素包含�
 
    为一些控件绑定 [`Action`][] 提供了方便快捷的 API 。
 
-```swift
+   ```swift
    // 当 toggle 的被点击时 `allowsCookies` 的值就会更新
    preferences.allowsCookies <~ toggle.reactive.isOnValues 
 
@@ -40,7 +40,7 @@ __ReactiveCocoa__ 通过使用声明式的 [ReactiveSwift][] 基本元素包含�
 
    // 当按钮被点击时触发 `commit` 
    button.reactive.pressed = CocoaAction(viewModel.commit)
-```
+   ```
 
 3. **声明式的 Objective-C 动态机制**
 
