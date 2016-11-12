@@ -16,7 +16,7 @@ __ReactiveSwift__ 为处理___随着时间传递的数据流___ 提供了可组�
 
 __ReactiveCocoa__ 通过使用声明式的 [ReactiveSwift][] 基本元素包含了 Cocoa 框架的多个方面的编程模式。 
 
-1. **绑定 UI **
+1. **绑定 UI**
 
    UI 组件公开 [`BindingTarget`][] ，通过 `<~` 操作符绑定任意类型数据流的值。
 
