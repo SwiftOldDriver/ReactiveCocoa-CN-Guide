@@ -71,27 +71,27 @@ __ReactiveCocoa__ 通过使用声明式的 [ReactiveSwift][] 基本元素包含�
                                           keyPath: #keyPath(person.name))
    ```
 
-But there are still more to be discovered and introduced. Read our in-code documentations and release notes to find out more.
+这里还有一些值得介绍的特性。请阅读我们代码内的文档和发布版的 notes 了解更多内容吧。
 
-## Getting started
+## 一起开始吧
 
-ReactiveCocoa supports macOS 10.9+, iOS 8.0+, watchOS 2.0+, and tvOS 9.0+.
+ReactiveCocoa 支持 macOS 10.9+, iOS 8.0+, watchOS 2.0+, 和 tvOS 9.0+.
 
 #### Carthage
 
-If you use [Carthage][] to manage your dependencies, simply add
-ReactiveCocoa to your `Cartfile`:
+如果你使用 [Carthage][] 来管理你项目中的依赖，只需要很简单的把
+ReactiveCocoa 添加到你的 `Cartfile` 文件中:
 
 ```
 github "ReactiveCocoa/ReactiveCocoa"
 ```
 
-If you use Carthage to build your dependencies, make sure you have added `ReactiveCocoa.framework`, `ReactiveSwift.framework`, and `Result.framework` to the "_Linked Frameworks and Libraries_" section of your target, and have included them in your Carthage framework copying build phase.
+如果你使用 Carthage 去编译你项目中的依赖，请确保你已经添加`ReactiveCocoa.framework`, `ReactiveSwift.framework` 和 `Result.framework` 到你项目target下的 "_Linked Frameworks and Libraries_" 一栏中, 并且已经在 Carthage framework 的 build phase 里面包含了它们。
 
 #### CocoaPods
 
-If you use [CocoaPods][] to manage your dependencies, simply add
-ReactiveCocoa to your `Podfile`:
+如果你使用 [CocoaPods][] 去管理你项目中的依赖, 只需要很简单的把
+ReactiveCocoa 添加到你的 `Podfile` 文件中:
 
 ```
 pod 'ReactiveCocoa', :git => 'https://github.com/ReactiveCocoa/ReactiveCocoa.git'
@@ -99,21 +99,18 @@ pod 'ReactiveCocoa', :git => 'https://github.com/ReactiveCocoa/ReactiveCocoa.git
 
 #### Git submodule
 
- 1. Add the ReactiveCocoa repository as a [submodule][] of your
-    application’s repository.
- 2. Run `git submodule update --init --recursive` from within the ReactiveCocoa folder.
- 3. Drag and drop `ReactiveCocoa.xcodeproj`,
-    `Carthage/Checkouts/ReactiveSwift/ReactiveSwift.xcodeproj`, and
-    `Carthage/Checkouts/Result/Result.xcodeproj` into your application’s Xcode
-    project or workspace.
- 4. On the “General” tab of your application target’s settings, add
-    `ReactiveCocoa.framework`, `ReactiveSwift.framework`, and `Result.framework`
-    to the “Embedded Binaries” section.
- 5. If your application target does not contain Swift code at all, you should also
-    set the `EMBEDDED_CONTENT_CONTAINS_SWIFT` build setting to “Yes”.
+ 1. 把 ReactiveCocoa 代码库以 [submodule][] 的形式添加到你自己项目的代码中。
+ 2. 在 ReactiveCocoa 的文件夹中，运行 `git submodule update --init --recursive` 命令。
+ 3. 把 `ReactiveCocoa.xcodeproj`,
+    `Carthage/Checkouts/ReactiveSwift/ReactiveSwift.xcodeproj`, 和
+    `Carthage/Checkouts/Result/Result.xcodeproj` 这三者拖到你项目所在的 project 或者 workspace 中。
+ 4. 在你项目的 target 设置中找到 “General” 选项卡, 把
+    `ReactiveCocoa.framework`, `ReactiveSwift.framework`, 和 `Result.framework`
+    添加到 “Embedded Binaries” 一项中.
+ 5. 如果你的项目 target 中一点也不包含  Swift 的代码，你需要把编译设置中的 `EMBEDDED_CONTENT_CONTAINS_SWIFT` 设置为 “Yes”.
 
-## Have a question?
-If you need any help, please visit our [GitHub issues][] or [Stack Overflow][]. Feel free to file an issue if you do not manage to find any solution from the archives.
+## 有问题么?
+如果你需要任何的帮助，请访问我们的 [GitHub issues][] 或者 [Stack Overflow][]. 如果没有找到问题的解决办法，请提交一个 issue 给我们。
 
 [ReactiveSwift]: https://github.com/ReactiveCocoa/ReactiveSwift
 [ReactiveObjC]: https://github.com/ReactiveCocoa/ReactiveObjC
