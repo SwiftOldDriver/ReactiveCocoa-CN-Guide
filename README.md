@@ -32,7 +32,7 @@ __ReactiveCocoa__ 通过使用声明式的 [ReactiveSwift][] 基本元素包含�
    为一些控件绑定 [`Action`][] 提供了方便快捷的 API 。
 
    ```swift
-   // 当 toggle 的被点击时 `allowsCookies` 的值就会更新
+   // 当 toggle 被点击时 `allowsCookies` 的值就会更新
    preferences.allowsCookies <~ toggle.reactive.isOnValues 
 
    // 根据 textField 中用户的输入实时输出当前文本的字符长度
@@ -44,7 +44,7 @@ __ReactiveCocoa__ 通过使用声明式的 [ReactiveSwift][] 基本元素包含�
 
 3. **声明式的 Objective-C 动态机制**
 
-   通过拦截 Objective-C 对象生成信号，
+   通过拦截 Objective-C 对象消息生成信号，
    比如下面例子中方法调用的拦截和对象释放。
 
    ```swift
